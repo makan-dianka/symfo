@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 
+    Bienvenue sur la page d'accueille !
+{% endblock %}
+
+
+{% block content %}
+
+<body>
+    <div class="container">
+        <h1 class="head-h1 home">Hello world !</h1>
+        <a href="{{ path('users') }}" class="list-users">List of Users</a> <br />
+        <a href="{{ path('personnes') }}" class="list-users">List of Personnes</a>
+    </div>
+</body>
+    
+{% endblock %}

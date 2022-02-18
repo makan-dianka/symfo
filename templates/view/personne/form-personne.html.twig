@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% form_theme formPersonne 'bootstrap_4_layout.html.twig' %}
+
+{% block title %} 
+    formulaire d'utilisateur
+{% endblock %}
+
+
+{% block content %}
+
+<body>
+    <div class="container">
+        <h1 class="head-h1 home">Ajout...</h1>
+        {{ form_start(formPersonne) }}
+        {{ form_widget(formPersonne) }}
+        <button class="btn btn-success" type="submit">Envoyer</button>
+        {{ form_end(formPersonne) }}
+    </div>
+</body>
+    
+{% endblock %}

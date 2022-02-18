@@ -1,3 +1,34 @@
 body {
-    background-color: lightgray;
+    background-color: gray;
+}
+
+.head-h3{
+    padding: 15px;
+}
+
+.head-h3 a{
+    color: white;
+    text-decoration: none;
+}
+
+.head-h1{
+    color: blue;
+}
+
+.head-h1 a{
+    color: white;
+    text-decoration: none;
+}
+
+.home {
+    margin-top: 150px;
+}
+
+.list-users{
+    color: white;
+    text-decoration: none;
+}
+
+.centre-action{
+    text-align: center;
 }

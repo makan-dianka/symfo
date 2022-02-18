@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 
+    Users 
+{% endblock %}
+
+
+{% block content %}
+<body>
+
+    <h3 class="head-h3"> <a href="{{ path("index") }}">Home page</a></h3>
+    <hr>
+
+    <div class="container-fluid">
+        <h1 class="btn btn-primary head-h1"><a href="{{ path('form') }}">Add user</a></h1>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <table class="table table-hover table-bordered border-dark">
+                <caption>Liste des utilisateurs</caption>
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nom</th>
+                        <th scope="col">Prenom</th>
+                        <th scope="col" colspan="2" class="col-sm-2 centre-action">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table-warning">
+                    {% for user in users %}
+                        <tr>
+                            <th scope="row">{{ user.getId }}</th>
+                            <td>{{ user.getFirstName }}</td>
+                            <td>{{ user.getLastName }}</td>
+                            <td> <a href="user/{{ user.getId }}" class="btn btn-success"> Update </a> </td>
+                            <td> <a href="delete/user/{{ user.getId }}" class="btn btn-danger">  Delete </a> </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>
+    
+
+
+
+
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <script src="/build/main.js" defer></script>
+    {% endblock %}
+
+{% endblock %}

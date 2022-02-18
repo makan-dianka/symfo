@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} 
+    Personnes
+{% endblock %}
+
+
+{% block content %}
+<body>
+
+    <h3 class="head-h3"> <a href="{{ path("index") }}">Home page</a></h3>
+    <hr>
+
+    <div class="container-fluid">
+        <h1 class="btn btn-primary head-h1"><a href="{{ path("form_personne") }}">Add New</a></h1>
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <table class="table table-hover table-bordered border-dark">
+                <caption>Liste des personnes</caption>
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">GENRE</th>
+                        <th scope="col">NOM</th>
+                        <th scope="col">NAISSANCE</th>
+                        <th scope="col">NATIONALITE</th>
+                        <th scope="col" colspan="2" class="col-sm-2 centre-action">Action</th>
+                    </tr>
+                </thead>
+
+                <tbody class="table-warning">
+                    {% for personne in personnes %}
+                        <tr>
+                            <th scope="row">{{ personne.getId }}</th>
+                            <td>{{ personne.getGenre }}</td>
+                            <td>{{ personne.getNom }}</td>
+                            <td>{{ personne.getNaissance|date("d/m/Y") }}</td>
+                            <td>{{ personne.getNationalite }}</td>
+                            <td> <a href="/personne/{{ personne.getId }}" class="btn btn-success"> Update </a> </td>
+                            <td> <a href="/delete/personne/{{ personne.getId }}" class="btn btn-danger">  Delete </a> </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+</body>
+    
+
+
+
+
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <script src="/build/main.js" defer></script>
+    {% endblock %}
+
+{% endblock %}
